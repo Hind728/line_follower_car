@@ -1,0 +1,79 @@
+<?xml version="1.0" ?>
+<sdf version="1.8">
+  <world name="line_world">
+
+    <physics name="1ms" type="ignored">
+      <max_step_size>0.001</max_step_size>
+      <real_time_factor>1.0</real_time_factor>
+    </physics>
+
+    <plugin filename="gz-sim-physics-system" name="gz::sim::systems::Physics"/>
+    <plugin filename="gz-sim-user-commands-system" name="gz::sim::systems::UserCommands"/>
+    <plugin filename="gz-sim-scene-broadcaster-system" name="gz::sim::systems::SceneBroadcaster"/>
+
+    <light type="directional" name="sun">
+      <cast_shadows>true</cast_shadows>
+      <pose>0 0 10 0 0 0</pose>
+      <diffuse>1 1 1 1</diffuse>
+      <specular>0.5 0.5 0.5 1</specular>
+      <direction>-0.5 0.1 -0.9</direction>
+    </light>
+
+    <!-- Sol noir -->
+    <model name="ground">
+      <static>true</static>
+      <link name="link">
+        <visual name="visual">
+          <geometry>
+            <plane><normal>0 0 1</normal><size>20 20</size></plane>
+          </geometry>
+          <material>
+            <ambient>0.1 0.1 0.1 1</ambient>
+            <diffuse>0.1 0.1 0.1 1</diffuse>
+          </material>
+        </visual>
+        <collision name="collision">
+          <geometry>
+            <plane><normal>0 0 1</normal><size>20 20</size></plane>
+          </geometry>
+        </collision>
+      </link>
+    </model>
+
+    <!-- Ligne blanche segment 1 -->
+    <model name="seg1"><static>true</static><pose>0 0 0.01 0 0 0</pose>
+      <link name="link"><visual name="v"><geometry><box><size>0.1 4 0.01</size></box></geometry>
+      <material><ambient>1 1 1 1</ambient><diffuse>1 1 1 1</diffuse></material></visual></link></model>
+
+    <!-- Ligne blanche segment 2 -->
+    <model name="seg2"><static>true</static><pose>2 2 0.01 0 0 1.5707</pose>
+      <link name="link"><visual name="v"><geometry><box><size>0.1 4 0.01</size></box></geometry>
+      <material><ambient>1 1 1 1</ambient><diffuse>1 1 1 1</diffuse></material></visual></link></model>
+
+    <!-- Ligne blanche segment 3 -->
+    <model name="seg3"><static>true</static><pose>0 4 0.01 0 0 0</pose>
+      <link name="link"><visual name="v"><geometry><box><size>0.1 4 0.01</size></box></geometry>
+      <material><ambient>1 1 1 1</ambient><diffuse>1 1 1 1</diffuse></material></visual></link></model>
+
+    <!-- Ligne blanche segment 4 -->
+    <model name="seg4"><static>true</static><pose>-2 2 0.01 0 0 1.5707</pose>
+      <link name="link"><visual name="v"><geometry><box><size>0.1 4 0.01</size></box></geometry>
+      <material><ambient>1 1 1 1</ambient><diffuse>1 1 1 1</diffuse></material></visual></link></model>
+
+    <!-- Ligne blanche segment 5 -->
+    <model name="seg5"><static>true</static><pose>0 -4 0.01 0 0 0</pose>
+      <link name="link"><visual name="v"><geometry><box><size>0.1 4 0.01</size></box></geometry>
+      <material><ambient>1 1 1 1</ambient><diffuse>1 1 1 1</diffuse></material></visual></link></model>
+
+    <!-- Ligne blanche segment 6 -->
+    <model name="seg6"><static>true</static><pose>2 -2 0.01 0 0 1.5707</pose>
+      <link name="link"><visual name="v"><geometry><box><size>0.1 4 0.01</size></box></geometry>
+      <material><ambient>1 1 1 1</ambient><diffuse>1 1 1 1</diffuse></material></visual></link></model>
+
+    <!-- Ligne blanche segment 7 -->
+    <model name="seg7"><static>true</static><pose>-2 -2 0.01 0 0 1.5707</pose>
+      <link name="link"><visual name="v"><geometry><box><size>0.1 4 0.01</size></box></geometry>
+      <material><ambient>1 1 1 1</ambient><diffuse>1 1 1 1</diffuse></material></visual></link></model>
+
+  </world>
+</sdf>
